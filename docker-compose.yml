@@ -1,0 +1,58 @@
+# snipe-it docker compose — asset management lab
+# Usage: cp .env.example .env, fill in real values, then: docker compose up -d
+# App: http://localhost:8080
+
+services:
+  db:
+    image: mariadb:11
+    container_name: snipeit-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?set MYSQL_ROOT_PASSWORD in .env}
+      MYSQL_DATABASE: ${DB_DATABASE:-snipeit}
+      MYSQL_USER: ${DB_USERNAME:-snipeit}
+      MYSQL_PASSWORD: ${DB_PASSWORD:?set DB_PASSWORD in .env}
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  app:
+    image: snipe/snipe-it:v8.0.4
+    container_name: snipeit-app
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:80"
+    environment:
+      # Generate a real key before first run, e.g.:
+      #   docker run --rm snipe/snipe-it php artisan key:generate --show
+      APP_KEY: ${APP_KEY:?generate an APP_KEY and put it in .env — see docs/setup-notes.md}
+      APP_URL: ${APP_URL:-http://localhost:8080}
+      APP_ENV: ${APP_ENV:-production}
+      APP_DEBUG: ${APP_DEBUG:-false}
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: ${DB_DATABASE:-snipeit}
+      DB_USERNAME: ${DB_USERNAME:-snipeit}
+      DB_PASSWORD: ${DB_PASSWORD:?set DB_PASSWORD in .env}
+      # Mail is optional for the lab — leave blank to disable outbound email.
+      MAIL_HOST: ${MAIL_HOST:-}
+      MAIL_PORT: ${MAIL_PORT:-587}
+      MAIL_USERNAME: ${MAIL_USERNAME:-}
+      MAIL_PASSWORD: ${MAIL_PASSWORD:-}
+      MAIL_FROM_ADDR: ${MAIL_FROM_ADDR:-}
+      MAIL_FROM_NAME: ${MAIL_FROM_NAME:-Snipe-IT Lab}
+    volumes:
+      - app_storage:/var/www/html/storage/app
+      - app_uploads:/var/www/html/public/uploads
+
+volumes:
+  db_data:
+  app_storage:
+  app_uploads:

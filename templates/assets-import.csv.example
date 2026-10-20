@@ -1,0 +1,9 @@
+Item Name,Category,Model,Manufacturer,Serial Number,Asset Tag,Status,Location,Purchase Date,Purchase Cost,Notes
+Laptop - Sales Rep 01,Laptops,Business Laptop 14in,Generic OEM,SN-FAKE-0001,IT-1001,Ready to Deploy,Office - HQ,2025-01-15,899.99,Sample row - fictional data
+Laptop - Warehouse Lead,Laptops,Business Laptop 14in,Generic OEM,SN-FAKE-0002,IT-1002,Deployed,Warehouse - Dock Office,2025-01-15,899.99,Sample row - fictional data
+Laptop - Spare Pool,Laptops,Rugged Laptop 15in,Generic OEM,SN-FAKE-0003,IT-1003,Ready to Deploy,Office - IT Closet,2025-03-02,1249.00,Sample row - fictional data
+USB-C Docking Station,Peripherals,Dock USB-C Dual Display,Generic OEM,SN-FAKE-0004,IT-2001,Deployed,Office - HQ,2025-02-10,179.99,Sample row - fictional data
+Monitor 24in,Peripherals,Monitor 24in IPS,Generic OEM,SN-FAKE-0005,IT-2002,Deployed,Office - HQ,2025-02-10,149.99,Sample row - fictional data
+Handheld Scanner - Aisle 1,Barcode Scanners,Handheld Scanner HS-2200,Generic OEM,SN-FAKE-0006,WH-3001,Deployed,Warehouse - Aisle 1,2025-04-20,349.99,Sample row - fictional data
+Handheld Scanner - Receiving,Barcode Scanners,Handheld Scanner HS-2200,Generic OEM,SN-FAKE-0007,WH-3002,Deployed,Warehouse - Receiving,2025-04-20,349.99,Sample row - fictional data
+Label Printer - Shipping,Label Printers,Label Printer LP-450,Generic OEM,SN-FAKE-0008,WH-4001,Deployed,Warehouse - Shipping,2025-05-05,429.99,Sample row - fictional data

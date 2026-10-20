@@ -1,0 +1,14 @@
+# Real environment — never commit
+.env
+
+# Database / app backups (may contain real asset data)
+backups/
+*.sql
+*.sql.gz
+
+# Exports — CSV exports can contain REAL serial numbers and assignee names
+exports/
+*-export.csv
+
+# Local overrides
+docker-compose.override.yml
