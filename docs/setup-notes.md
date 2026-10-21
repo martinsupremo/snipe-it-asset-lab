@@ -25,9 +25,9 @@ Fill in `.env` (the placeholders are **not** valid values):
 - `DB_PASSWORD` / `MYSQL_ROOT_PASSWORD` — strong unique passwords
   (e.g. `openssl rand -base64 24`).
 - `APP_URL` — the URL you'll reach the app at (default
-  `http://localhost:8080` for local lab; a real hostname behind HTTPS in
+  `http://localhost:8080` for local use; a real hostname behind HTTPS in
   production).
-- Mail settings — optional. Leave blank for the lab; Snipe-IT works without
+- Mail settings — optional. Leave blank here; Snipe-IT works without
   outbound email (you lose check-in reminders and audit notifications).
 
 ## 3. Start the stack and run migrations
@@ -56,7 +56,7 @@ Or via CLI if you prefer:
 
 ```bash
 docker compose exec app php artisan snipeit:create-admin \
-  --first_name="Lab" --last_name="Admin" \
+  --first_name="Demo" --last_name="Admin" \
   --email="admin@example.local" --username="admin"
 # prompted for a password — use a real one; it is not stored in the repo
 ```

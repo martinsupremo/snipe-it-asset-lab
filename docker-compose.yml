@@ -1,4 +1,4 @@
-# snipe-it docker compose — asset management lab
+# snipe-it docker compose — asset management implementation
 # Usage: cp .env.example .env, fill in real values, then: docker compose up -d
 # App: http://localhost:8080
 
@@ -41,13 +41,13 @@ services:
       DB_DATABASE: ${DB_DATABASE:-snipeit}
       DB_USERNAME: ${DB_USERNAME:-snipeit}
       DB_PASSWORD: ${DB_PASSWORD:?set DB_PASSWORD in .env}
-      # Mail is optional for the lab — leave blank to disable outbound email.
+      # Mail is optional here — leave blank to disable outbound email.
       MAIL_HOST: ${MAIL_HOST:-}
       MAIL_PORT: ${MAIL_PORT:-587}
       MAIL_USERNAME: ${MAIL_USERNAME:-}
       MAIL_PASSWORD: ${MAIL_PASSWORD:-}
       MAIL_FROM_ADDR: ${MAIL_FROM_ADDR:-}
-      MAIL_FROM_NAME: ${MAIL_FROM_NAME:-Snipe-IT Lab}
+      MAIL_FROM_NAME: ${MAIL_FROM_NAME:-Snipe-IT Demo}
     volumes:
       - app_storage:/var/www/html/storage/app
       - app_uploads:/var/www/html/public/uploads

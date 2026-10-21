@@ -1,9 +1,9 @@
-# Snipe-IT Asset Lab — IT Asset Management for Office + Warehouse Inventory
+# Snipe-IT Asset Implementation — IT Asset Management for Office + Warehouse Inventory
 
 
-> **Note on sources:** This lab recreates a deployment I administered in a professional role. Company names, hostnames, IP addresses, keys, and tenant identifiers have been sanitized or replaced with placeholders for confidentiality.
+> **Note on sources:** This implementation recreates a deployment I administered in a professional role. Company names, hostnames, IP addresses, keys, and tenant identifiers have been sanitized or replaced with placeholders for confidentiality.
 
-A self-hosted Snipe-IT lab that mirrors real IT inventory work across an office and a
+A self-hosted Snipe-IT implementation that mirrors real IT inventory work across an office and a
 warehouse: asset intake, barcode labeling, check-in/check-out, cycle counts, and
 physical-to-system reconciliation — the full asset lifecycle in one web app backed by MariaDB.
 
@@ -63,7 +63,7 @@ docker compose up -d
 
 # 3. Create the first admin user (or finish setup in the web wizard)
 docker compose exec app php artisan snipeit:create-admin \
-  --first_name="Lab" --last_name="Admin" \
+  --first_name="Demo" --last_name="Admin" \
   --email="admin@example.local" --username="admin"
 #    -> you will be prompted for a password; use a real one, never commit it
 
