@@ -47,7 +47,6 @@ SOPs, and scan-based audit/reconciliation procedures.
 | `docs/architecture.md` | Design decisions: tag scheme, data model, custom fields, locations, barcode workflow, hardening |
 | `docs/checkin-checkout-workflow.md` | SOP for checkout, checkin, overdue follow-up, lost/damaged handling |
 | `docs/audit-reconciliation-procedure.md` | SOP for cycle counts, full audits, discrepancy resolution, sign-off |
-| `docs/interview-answers.md` | "How did you do this?" — talking points for interviews |
 | `templates/assets-import.csv.example` | Sample bulk-import CSV (8 fictional assets: laptops, peripherals, scanners, label printer) |
 
 ## Quick start
