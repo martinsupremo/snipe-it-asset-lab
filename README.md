@@ -94,7 +94,7 @@ docker compose exec app php artisan snipeit:create-admin \
 - `templates/assets-import.csv.example`: parsed with Python's `csv` module —
   header row present and every data row has the same column count as the header
   (8 fictional rows).
-- **Not validated in this sandbox (needs a real host):** actually booting the
+- **Not validated (needs a real host):** actually booting the
   stack (`docker compose up`), generating a real APP_KEY, running migrations,
   first-run web setup, CSV import through the UI, and printing/scanning a real
   barcode label. Those steps are written up in `docs/setup-notes.md` to run on
