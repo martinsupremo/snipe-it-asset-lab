@@ -1,11 +1,13 @@
 # Snipe-IT Asset Implementation — IT Asset Management for Office + Warehouse Inventory
 
+At Marubeni in Miami I handled IT inventory on the warehouse floor: scanners, label
+printers, and keeping the system in line with what was actually on the shelves. This
+repo sets up Snipe-IT for that kind of office-plus-warehouse inventory, using
+made-up assets and locations.
 
-> **Note on sources:** This implementation recreates a deployment I administered in a professional role. Company names, hostnames, IP addresses, keys, and tenant identifiers have been sanitized or replaced with placeholders for confidentiality.
-
-A self-hosted Snipe-IT implementation that mirrors real IT inventory work across an office and a
-warehouse: asset intake, barcode labeling, check-in/check-out, cycle counts, and
-physical-to-system reconciliation — the full asset lifecycle in one web app backed by MariaDB.
+It covers asset intake, barcode labels, check-in/check-out, cycle counts, and
+reconciling the physical count against the system, in one web app backed by
+MariaDB.
 
 **What this demonstrates:** Snipe-IT deployment (Docker + MariaDB), asset data modeling
 (tags, categories, models, status labels, custom fields, locations), CSV bulk import,
@@ -86,16 +88,12 @@ docker compose exec app php artisan snipeit:create-admin \
   network/VPN, enable backups of the MariaDB volume and `storage/app`, and review
   user permissions — not everyone needs delete rights on assets.
 
-## Validation
+## What's been checked
 
-- `docker-compose.yml`: parsed with Python `yaml.safe_load` — valid YAML,
-  services `app` + `db`, port mapping `8080:80`, volumes and env references resolve
-  against `.env.example`.
-- `templates/assets-import.csv.example`: parsed with Python's `csv` module —
-  header row present and every data row has the same column count as the header
-  (8 fictional rows).
-- **Not validated (needs a real host):** actually booting the
-  stack (`docker compose up`), generating a real APP_KEY, running migrations,
-  first-run web setup, CSV import through the UI, and printing/scanning a real
-  barcode label. Those steps are written up in `docs/setup-notes.md` to run on
-  a Docker host.
+- `docker-compose.yml` is valid YAML, defines the `app` and `db` services with
+  port `8080:80`, and every variable it uses is defined in `.env.example`.
+- The CSV import template has a header row and 8 example rows, all with the
+  same number of columns.
+- Still to do on a Docker host: start the stack, generate an APP_KEY, run the
+  first-time web setup, import the CSV, and print and scan a real barcode
+  label. `docs/setup-notes.md` walks through each step.
